@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block title %}Client list{% endblock %}
+
+{% block content %}
+<h1>Client List</h1>
+<a href="/new_customer" class="new_customer">Add Customer</a>
+<table style="width: 500px">
+    <tr>
+        <th style="width: 100px">Name</th>
+        <th style="width: 300px">Address</th>
+        <th style="width: 100px"></th>
+    </tr>
+    {% for c in customers %}
+    <tr>   
+        <td>{{ c.first_name }} {{ c.last_name }}</td>
+        <td>{{ c.address }}<br />{{ c.city }}, {{ c.state }} {{ c.zip }}</td>
+        <td><a type="button" href="/remove_customer/{{ c.id }}">Remove</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<ul>
+    
+</ul>
+{% endblock %}
